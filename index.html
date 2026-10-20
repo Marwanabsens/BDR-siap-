@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1746a2">
+<title>BDR SMP | Belajar dari Rumah</title>
+<style>
+:root{--blue:#1746a2;--blue2:#2563eb;--ink:#172033;--muted:#68758b;--bg:#f3f6fb;--line:#e2e8f0;--white:#fff;--green:#138a5b;--red:#c2414b;--shadow:0 8px 30px rgba(22,44,88,.08)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+header{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 22px;position:sticky;top:0;z-index:5}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;color:var(--blue);font-size:19px}.logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#1746a2,#3b82f6);display:grid;place-items:center;color:white;font-weight:900;box-shadow:0 5px 14px #1746a244}.brand small{display:block;font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.4px}
+.userbar{display:flex;align-items:center;gap:10px}.pill{border-radius:99px;background:#eaf1ff;color:var(--blue);padding:7px 11px;font-size:12px;font-weight:800}.avatar{width:34px;height:34px;border-radius:50%;background:#dbeafe;color:var(--blue);display:grid;place-items:center;font-weight:800}
+.layout{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 68px)}aside{padding:22px 14px;background:#fff;border-right:1px solid var(--line)}.navlabel{font-size:11px;font-weight:800;color:#97a1b3;letter-spacing:1px;padding:12px 12px 8px}.navbtn{width:100%;display:flex;gap:12px;align-items:center;border:0;background:transparent;color:#566278;text-align:left;padding:12px;border-radius:11px;font-weight:650;margin:2px 0}.navbtn:hover,.navbtn.active{background:#eaf1ff;color:var(--blue)}.navbtn span:first-child{width:22px;text-align:center;font-size:17px}
+main{padding:26px;min-width:0;max-width:1400px;width:100%;margin:0 auto}.welcome{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}.welcome h1{margin:0 0 5px;font-size:27px;letter-spacing:-.6px}.welcome p{margin:0;color:var(--muted);font-size:14px}.datebox{font-size:12px;color:var(--muted);background:#fff;border:1px solid var(--line);padding:10px 13px;border-radius:12px;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 3px 12px #0b245408}.stat-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;font-weight:700}.stat-icon{width:37px;height:37px;border-radius:12px;background:#eaf1ff;display:grid;place-items:center;font-size:18px}.stat strong{display:block;font-size:29px;margin:12px 0 3px}.stat small{color:var(--muted);font-size:12px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:18px;box-shadow:0 3px 12px #0b245408}.panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}.panel h2{font-size:17px;margin:0}.muted{color:var(--muted);font-size:13px}.btn{border:0;border-radius:10px;padding:10px 14px;background:var(--blue);color:#fff;font-weight:750;font-size:13px}.btn:hover{background:#103783}.btn.secondary{background:#edf2f8;color:#334155}.btn.outline{background:#fff;color:var(--blue);border:1px solid #bfd0f5}.btn.danger{background:#fff0f0;color:var(--red)}.btn.small{padding:7px 10px;font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}
+.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:620px}th,td{text-align:left;border-bottom:1px solid #edf0f5;padding:12px 10px;font-size:13px}th{color:#7b879a;font-size:11px;text-transform:uppercase;letter-spacing:.5px;background:#fbfcfe}td{color:#344054}.status{display:inline-flex;border-radius:99px;padding:5px 9px;font-size:11px;font-weight:800;background:#e7f8ef;color:#138a5b}.status.pending{background:#fff4db;color:#9a6500}.status.off{background:#f1f5f9;color:#64748b}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.itemcard{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}.itemcard .tag{font-size:11px;font-weight:800;color:var(--blue);background:#edf3ff;padding:5px 8px;border-radius:7px;display:inline-block}.itemcard h3{font-size:16px;margin:12px 0 7px}.itemcard p{font-size:13px;line-height:1.5;color:var(--muted);margin:0 0 13px}.itemcard .foot{border-top:1px solid #edf0f5;padding-top:12px;display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:750;color:#475569}.field input,.field select,.field textarea{width:100%;border:1px solid #d9e1ed;border-radius:10px;padding:11px 12px;background:#fff;outline:none;color:var(--ink)}.field textarea{min-height:95px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:#6b96ef;box-shadow:0 0 0 3px #dce8ff}.empty{text-align:center;padding:32px 12px;color:var(--muted)}.empty b{display:block;color:#344054;margin-bottom:6px}
+#loginView{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;background:#fff}.loginHero{background:linear-gradient(145deg,#102d70,#1d55bb 65%,#3d82ee);color:#fff;padding:9vw 7vw;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}.loginHero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid #ffffff2e;border-radius:50%;right:-150px;bottom:-180px;box-shadow:0 0 0 45px #ffffff08,0 0 0 95px #ffffff06}.loginHero h1{font-size:clamp(34px,4vw,54px);line-height:1.08;margin:25px 0 16px;max-width:500px;letter-spacing:-1.5px}.loginHero p{color:#d9e7ff;line-height:1.7;max-width:470px}.featureline{display:flex;gap:10px;align-items:center;margin-top:14px;color:#edf4ff;font-size:14px}.loginSide{display:flex;align-items:center;justify-content:center;padding:30px}.loginbox{width:100%;max-width:420px}.loginbox h2{font-size:27px;margin:0 0 7px}.loginbox>p{color:var(--muted);font-size:14px;margin:0 0 24px}.loginbox .field{margin-bottom:15px}.loginbox .btn{width:100%;padding:13px}.notice{font-size:12px;line-height:1.55;padding:12px;border-radius:10px;background:#fff7df;color:#805b12;margin-top:14px}.demo{background:#f3f7ff;border:1px solid #dce7fc;padding:12px;border-radius:10px;margin-top:15px;font-size:12px;line-height:1.65;color:#45546e}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#14213d;color:white;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow);z-index:20;font-size:13px;max-width:90%;text-align:center}
+.mobiletop{display:none}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.layout{grid-template-columns:205px 1fr}main{padding:20px}}
+@media(max-width:720px){header{height:60px;padding:0 14px}.brand{font-size:16px}.logo{width:35px;height:35px}.userbar .pill{display:none}.layout{display:block;min-height:calc(100vh - 60px)}aside{display:none}main{padding:17px 13px 90px}.welcome{align-items:flex-start;flex-direction:column;margin-bottom:17px}.welcome h1{font-size:24px}.datebox{display:none}.grid{gap:10px}.stat{padding:14px}.stat strong{font-size:25px}.stat-icon{width:32px;height:32px}.panel{padding:15px;margin-top:14px}.panelhead{align-items:flex-start;flex-direction:column}.cards{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.mobiletop{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:8;background:#fff;border-top:1px solid var(--line);justify-content:space-around;padding:8px 3px calc(8px + env(safe-area-inset-bottom))}.mobiletop button{border:0;background:transparent;color:#65728a;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;padding:5px 7px;border-radius:9px}.mobiletop button.active{color:var(--blue);background:#edf3ff}.mobiletop span{font-size:18px}#loginView{grid-template-columns:1fr}.loginHero{display:none}.loginSide{min-height:100vh;padding:24px}.loginbox h2{font-size:25px}.actions{width:100%}.actions .btn{flex:1}}
+</style>
+</head>
+<body>
+<section id="loginView">
+  <div class="loginHero">
+    <div class="brand" style="color:white"><div class="logo" style="background:#ffffff24;border:1px solid #ffffff40">BDR</div><div>BDR SMP<small style="color:#d9e7ff">BELAJAR DARI RUMAH</small></div></div>
+    <h1>Belajar lebih mudah, dari mana saja.</h1>
+    <p>Ruang belajar digital untuk guru dan siswa SMP. Akses materi, selesaikan tugas, catat kehadiran, dan pantau perkembangan belajar dalam satu tempat.</p>
+    <div class="featureline">✓ Materi dan tugas dalam satu ruang</div><div class="featureline">✓ Absensi serta rekap nilai</div><div class="featureline">✓ Nyaman di HP Android dan komputer</div>
+  </div>
+  <div class="loginSide"><div class="loginbox">
+    <div class="brand" style="margin-bottom:28px"><div class="logo">B</div><div>BDR SMP<small>PORTAL PEMBELAJARAN</small></div></div>
+    <h2>Selamat datang</h2><p>Masuk ke akun belajar Anda untuk melanjutkan.</p>
+    <form id="loginForm">
+      <div class="field"><label for="email">Email</label><input id="email" type="email" placeholder="nama@sekolah.sch.id" autocomplete="username" required></div>
+      <div class="field"><label for="password">Kata sandi</label><input id="password" type="password" placeholder="Masukkan kata sandi" autocomplete="current-password" required></div>
+      <button class="btn" type="submit" id="loginBtn">Masuk ke BDR</button>
+    </form>
+    <div class="actions" style="margin-top:12px"><button class="btn outline" id="signupBtn" style="flex:1">Daftar akun</button><button class="btn secondary" id="demoBtn" style="flex:1">Mode demo</button></div>
+    <div class="notice" id="setupNotice">Mode online memerlukan konfigurasi Supabase pada berkas <b>app.js</b> dan menjalankan SQL pada <b>supabase.sql</b>. Mode demo memakai data contoh di perangkat ini.</div>
+    <div class="demo"><b>Mode demo:</b> gunakan tombol “Mode demo” untuk mencoba antarmuka tanpa akun. Data demo hanya tersimpan di browser ini dan bukan data bersama.</div>
+  </div></div>
+</section>
+<div id="appView" class="hidden">
+<header><div class="brand"><div class="logo">B</div><div>BDR SMP<small>BELAJAR DARI RUMAH</small></div></div><div class="userbar"><span class="pill" id="rolePill">GURU</span><div class="avatar" id="avatar">G</div><div><b id="userName" style="font-size:13px">Pengguna</b><div id="userClass" class="muted" style="font-size:11px">SMP</div></div><button class="btn secondary small" id="logoutBtn">Keluar</button></div></header>
+<div class="layout"><aside><div class="navlabel">MENU UTAMA</div><div id="sideNav"></div><div class="navlabel" style="margin-top:20px">AKUN</div><button class="navbtn" id="sideLogout"><span>↪</span> Keluar</button></aside><main>
+<div class="welcome"><div><h1 id="pageTitle">Ringkasan belajar</h1><p id="pageSub">Pantau kegiatan pembelajaran hari ini.</p></div><div class="datebox" id="todayDate"></div></div>
+<div id="content"></div>
+</main></div><nav class="mobiletop" id="mobileNav"></nav>
+</div>
+<div id="toast" class="toast hidden" role="status"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+</body></html>
